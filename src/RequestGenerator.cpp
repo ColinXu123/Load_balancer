@@ -5,6 +5,10 @@
 #include "RequestGenerator.h"
 
 #include <algorithm>
+#include <cmath>
+#include <sstream>
+
+#include "Logger.h"
 
 RequestGenerator::RequestGenerator(const Config& config, const IPBlocker& blocker,
                                    unsigned seed)
@@ -18,8 +22,15 @@ RequestGenerator::RequestGenerator(const Config& config, const IPBlocker& blocke
     streamMin_          = static_cast<int>(config.getInt("streaming_time_min", 40));
     streamMax_          = static_cast<int>(config.getInt("streaming_time_max", 120));
     attackProbability_  = std::clamp(config.getDouble("attack_probability", 0.05), 0.0, 1.0);
-    arrivalProbability_ = std::clamp(config.getDouble("arrival_probability", 0.30), 0.0, 1.0);
-    maxBurst_           = std::max(1L, config.getInt("max_burst_size", 3));
+    arrivalRate_        = std::max(0.0, config.getDouble("arrival_rate", 0.6));
+    waveAmplitude_      = std::clamp(config.getDouble("traffic_wave_amplitude", 0.5), 0.0, 1.0);
+    wavePeriod_         = std::max(1L, config.getInt("traffic_wave_period", 25000));
+    spikeChance_        = std::clamp(config.getDouble("spike_chance", 0.00005), 0.0, 1.0);
+    spikeMultiplier_    = std::max(0.0, config.getDouble("spike_multiplier", 3.0));
+    lullChance_         = std::clamp(config.getDouble("lull_chance", 0.00005), 0.0, 1.0);
+    lullMultiplier_     = std::max(0.0, config.getDouble("lull_multiplier", 0.1));
+    eventMin_           = static_cast<int>(std::max(1L, config.getInt("event_min_length", 1000)));
+    eventMax_           = static_cast<int>(std::max<long>(eventMin_, config.getInt("event_max_length", 5000)));
 
     procMin_   = std::max(1, procMin_);
     streamMin_ = std::max(1, streamMin_);
@@ -44,10 +55,55 @@ Request RequestGenerator::generate(long cycle, char jobType) {
     return r;
 }
 
-int RequestGenerator::arrivalsThisCycle() {
-    if (chance() >= arrivalProbability_) return 0;
-    return uniform(1, maxBurst_);
+int RequestGenerator::arrivalsThisCycle(long cycle) {
+    // 1. Spikes and lulls: finish the current one, or maybe start a new one.
+    if (eventLeft_ > 0) {
+        if (--eventLeft_ == 0) {
+            Logger::major(cycle, "Traffic", LogColor::Cyan, "TRAFFIC",
+                          std::string(eventType_ == 'S' ? "spike" : "lull") +
+                          " over, traffic back to normal");
+            eventType_ = 'N';
+            eventMult_ = 1.0;
+        }
+    } else {
+        const double r = chance();
+        const bool spike = r < spikeChance_;
+        const bool lull  = !spike && r < spikeChance_ + lullChance_;
+        if (spike || lull) {
+            eventType_ = spike ? 'S' : 'L';
+            eventMult_ = spike ? spikeMultiplier_ : lullMultiplier_;
+            eventLeft_ = uniform(eventMin_, eventMax_);
+            spike ? ++spikes_ : ++lulls_;
+            std::ostringstream os;
+            os << (spike ? "SPIKE: traffic x" : "LULL: traffic x") << eventMult_
+               << " for " << eventLeft_ << " cycles";
+            Logger::major(cycle, "Traffic", spike ? LogColor::Yellow : LogColor::Cyan,
+                          "TRAFFIC", os.str());
+        }
+    }
+
+    // 2. Slow wave, like busy and quiet hours of a day.
+    const double pi   = 3.14159265358979323846;
+    const double wave = 1.0 + waveAmplitude_ * std::sin(2.0 * pi * static_cast<double>(cycle) /
+                                                        static_cast<double>(wavePeriod_));
+    level_ = std::max(0.0, wave * eventMult_);
+
+    // 3. Number of arrivals this cycle, averaging arrivalRate_ x level_.
+    const double mean = arrivalRate_ * level_;
+    if (mean <= 0.0) return 0;
+    std::poisson_distribution<int> dist(mean);
+    return dist(rng_);
 }
+
+double RequestGenerator::trafficLevel() const { return level_; }
+
+const char* RequestGenerator::trafficState() const {
+    return eventType_ == 'S' ? "spike" : eventType_ == 'L' ? "lull" : "normal";
+}
+
+int RequestGenerator::spikeCount() const { return spikes_; }
+
+int RequestGenerator::lullCount() const { return lulls_; }
 
 unsigned RequestGenerator::seed() const { return seed_; }
 
