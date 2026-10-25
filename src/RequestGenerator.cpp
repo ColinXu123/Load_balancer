@@ -59,7 +59,7 @@ int RequestGenerator::arrivalsThisCycle(long cycle) {
     // 1. Spikes and lulls: finish the current one, or maybe start a new one.
     if (eventLeft_ > 0) {
         if (--eventLeft_ == 0) {
-            Logger::major(cycle, "Traffic", LogColor::Cyan, "TRAFFIC",
+            Logger::event(cycle, "Traffic", LogColor::Cyan, "TRAFFIC",
                           std::string(eventType_ == 'S' ? "spike" : "lull") +
                           " over, traffic back to normal");
             eventType_ = 'N';
@@ -77,7 +77,7 @@ int RequestGenerator::arrivalsThisCycle(long cycle) {
             std::ostringstream os;
             os << (spike ? "SPIKE: traffic x" : "LULL: traffic x") << eventMult_
                << " for " << eventLeft_ << " cycles";
-            Logger::major(cycle, "Traffic", spike ? LogColor::Yellow : LogColor::Cyan,
+            Logger::event(cycle, "Traffic", spike ? LogColor::Yellow : LogColor::Cyan,
                           "TRAFFIC", os.str());
         }
     }
