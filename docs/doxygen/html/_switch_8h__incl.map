@@ -1,0 +1,50 @@
+<map id="src/Switch.h" name="src/Switch.h">
+<area shape="rect" id="Node000001" title="Front door of the simulation: firewall check plus job&#45;type routing." alt="" coords="533,5,627,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="37,153,105,178"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="530,32,349,82,121,151,119,146,347,76,535,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="461,300,515,326"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="530,24,410,39,255,64,180,81,113,102,60,126,40,140,26,154,12,180,8,201,14,221,27,238,49,252,76,265,145,285,226,298,308,305,448,312,443,312,308,310,225,303,144,290,74,270,46,257,24,241,9,223,3,202,7,178,22,151,37,136,57,122,111,97,178,76,254,58,409,34,535,22"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="655,226,713,252"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="589,29,623,82,660,152,680,213,675,210,655,154,618,84,587,34"/>
+<area shape="rect" id="Node000005" href="$_config_8h.html" title="Loads simulation parameters from a key=value configuration file." alt="" coords="545,153,615,178"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="582,29,582,138,578,136,578,33"/>
+<area shape="rect" id="Node000007" href="$_i_p_blocker_8h.html" title="Firewall that rejects requests from configured IPv4 ranges." alt="" coords="879,153,967,178"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="627,20,696,27,774,38,845,55,872,65,892,77,904,90,913,105,922,139,917,136,908,107,900,93,889,81,870,70,843,60,773,44,695,32,628,26"/>
+<area shape="rect" id="Node000010" href="$_load_balancer_8h.html" title="Defines the LoadBalancer class and its statistics record." alt="" coords="360,79,470,105"/>
+<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="550,33,458,75,456,70,554,30"/>
+<area shape="rect" id="Node000016" href="$_request_generator_8h.html" title="Produces random requests according to configured distributions." alt="" coords="741,79,878,105"/>
+<area shape="poly" id="edge26_Node000001_Node000016" title=" " alt="" coords="619,29,759,74,753,74,619,34"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="575,178,505,289,502,285,570,180"/>
+<area shape="poly" id="edge7_Node000005_Node000004" title=" " alt="" coords="598,176,657,218,651,217,597,181"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="565,226,611,252"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="583,176,587,212,583,209,580,181"/>
+<area shape="poly" id="edge10_Node000007_Node000003" title=" " alt="" coords="920,177,899,217,882,238,861,254,835,266,798,277,707,293,530,311,530,306,706,288,797,272,833,261,859,250,878,234,894,214,915,180"/>
+<area shape="poly" id="edge12_Node000007_Node000004" title=" " alt="" coords="885,178,728,227,727,222,880,179"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="930,226,990,252"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="930,176,949,214,944,211,928,181"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="1014,226,1066,252"/>
+<area shape="poly" id="edge11_Node000007_Node000009" title=" " alt="" coords="943,176,1010,218,1005,218,942,181"/>
+<area shape="poly" id="edge14_Node000010_Node000002" title=" " alt="" coords="358,107,125,155,121,156,118,151,123,150,360,102"/>
+<area shape="poly" id="edge15_Node000010_Node000003" title=" " alt="" coords="357,104,243,129,194,143,170,154,168,165,171,178,171,219,174,234,186,250,204,262,231,273,301,289,379,300,448,309,443,309,378,305,300,294,229,278,201,267,182,254,169,236,166,219,165,179,162,165,166,151,192,138,242,124,361,101"/>
+<area shape="poly" id="edge16_Node000010_Node000004" title=" " alt="" coords="470,95,549,113,590,129,628,151,656,179,675,213,670,211,652,183,625,155,588,133,547,118,470,101"/>
+<area shape="poly" id="edge17_Node000010_Node000005" title=" " alt="" coords="443,103,541,146,535,146,442,108"/>
+<area shape="rect" id="Node000011" href="$_request_8h.html" title="Defines the Request structure that represents a single web request." alt="" coords="409,226,490,252"/>
+<area shape="poly" id="edge18_Node000010_Node000011" title=" " alt="" coords="420,103,435,152,447,213,442,210,429,153,417,107"/>
+<area shape="rect" id="Node000012" href="$_request_queue_8h.html" title="FIFO queue of pending requests owned by a load balancer." alt="" coords="180,153,300,178"/>
+<area shape="poly" id="edge20_Node000010_Node000012" title=" " alt="" coords="383,107,285,149,283,144,387,104"/>
+<area shape="rect" id="Node000015" href="$_web_server_8h.html" title="Defines the WebServer class that processes one request at a time." alt="" coords="324,153,420,178"/>
+<area shape="poly" id="edge24_Node000010_Node000015" title=" " alt="" coords="410,103,389,141,385,137,406,107"/>
+<area shape="poly" id="edge19_Node000011_Node000003" title=" " alt="" coords="457,250,477,287,472,285,454,255"/>
+<area shape="poly" id="edge23_Node000012_Node000011" title=" " alt="" coords="276,176,402,220,397,222,275,182"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="276,226,340,252"/>
+<area shape="poly" id="edge21_Node000012_Node000013" title=" " alt="" coords="252,176,289,215,284,215,250,181"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="196,226,252,252"/>
+<area shape="poly" id="edge22_Node000012_Node000014" title=" " alt="" coords="239,177,232,212,228,209,236,181"/>
+<area shape="poly" id="edge25_Node000015_Node000011" title=" " alt="" coords="386,176,428,216,423,215,384,181"/>
+<area shape="poly" id="edge28_Node000016_Node000003" title=" " alt="" coords="815,103,824,139,824,159,818,179,801,208,781,226,726,254,676,276,623,291,530,309,530,304,621,286,674,271,724,250,778,222,797,205,814,177,819,159,819,139,812,107"/>
+<area shape="poly" id="edge29_Node000016_Node000005" title=" " alt="" coords="773,104,631,151,629,146,768,106"/>
+<area shape="poly" id="edge30_Node000016_Node000007" title=" " alt="" coords="829,103,893,144,888,144,828,108"/>
+<area shape="poly" id="edge31_Node000016_Node000011" title=" " alt="" coords="738,98,693,106,640,116,586,132,535,155,497,183,468,216,465,211,494,179,532,150,584,127,639,111,692,101,743,96"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="740,153,804,178"/>
+<area shape="poly" id="edge27_Node000016_Node000017" title=" " alt="" coords="805,103,787,141,784,137,801,106"/>
+</map>

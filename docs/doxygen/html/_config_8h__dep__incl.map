@@ -1,0 +1,23 @@
+<map id="src/Config.h" name="src/Config.h">
+<area shape="rect" id="Node000001" title="Loads simulation parameters from a key=value configuration file." alt="" coords="260,5,353,31"/>
+<area shape="rect" id="Node000002" href="$_config_8cpp.html" title="Implementation of the Config class." alt="" coords="5,79,112,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="249,38,102,81,100,76,251,33"/>
+<area shape="rect" id="Node000003" href="$_load_balancer_8h.html" title="Defines the LoadBalancer class and its statistics record." alt="" coords="136,79,269,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="274,42,222,81,219,76,279,38"/>
+<area shape="rect" id="Node000005" href="$_switch_8h.html" title="Front door of the simulation: firewall check plus job&#45;type routing." alt="" coords="259,153,354,178"/>
+<area shape="poly" id="edge11_Node000001_Node000005" title=" " alt="" coords="308,45,309,153,304,151,305,49"/>
+<area shape="rect" id="Node000007" href="$main_8cpp.html" title="Entry point: reads settings, builds the system, runs the simulation." alt="" coords="364,226,460,252"/>
+<area shape="poly" id="edge12_Node000001_Node000007" title=" " alt="" coords="368,21,433,33,503,56,537,73,568,94,595,120,616,152,621,174,614,193,598,207,575,218,518,232,460,239,460,233,517,227,573,213,595,203,610,190,616,174,611,154,591,123,565,98,535,77,501,61,431,38,368,27"/>
+<area shape="rect" id="Node000008" href="$_request_generator_8h.html" title="Produces random requests according to configured distributions." alt="" coords="344,79,504,105"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="339,37,406,78,401,79,339,42"/>
+<area shape="rect" id="Node000004" href="$_load_balancer_8cpp.html" title="Implementation of the LoadBalancer class." alt="" coords="89,153,236,178"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="190,116,171,154,167,150,186,120"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="233,111,291,152,286,152,232,116"/>
+<area shape="rect" id="Node000006" href="$_switch_8cpp.html" title="Implementation of the Switch class." alt="" coords="231,226,339,252"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="301,191,291,228,287,224,296,195"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="338,185,397,226,391,225,336,190"/>
+<area shape="poly" id="edge9_Node000008_Node000005" title=" " alt="" coords="394,112,328,154,325,150,389,114"/>
+<area shape="poly" id="edge10_Node000008_Node000007" title=" " alt="" coords="422,118,418,153,414,227,410,224,413,152,418,122"/>
+<area shape="rect" id="Node000009" href="$_request_generator_8cpp.html" title="Implementation of the RequestGenerator class." alt="" coords="428,153,601,178"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="452,112,502,153,497,152,450,117"/>
+</map>

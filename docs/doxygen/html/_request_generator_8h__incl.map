@@ -1,0 +1,25 @@
+<map id="src/RequestGenerator.h" name="src/RequestGenerator.h">
+<area shape="rect" id="Node000001" title="Produces random requests according to configured distributions." alt="" coords="134,5,293,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,70,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,34,83,75,80,70,185,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="186,153,239,178"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,30,215,138,210,136,211,33"/>
+<area shape="rect" id="Node000004" href="$_config_8h.html" title="Loads simulation parameters from a key=value configuration file." alt="" coords="250,79,321,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="226,29,265,68,260,68,225,34"/>
+<area shape="rect" id="Node000007" href="$_i_p_blocker_8h.html" title="Firewall that rejects requests from configured IPv4 ranges." alt="" coords="345,79,434,105"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="244,29,348,72,343,74,243,34"/>
+<area shape="rect" id="Node000010" href="$_request_8h.html" title="Defines the Request structure that represents a single web request." alt="" coords="94,79,176,105"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="202,30,161,70,158,66,198,33"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="276,104,237,144,234,140,271,106"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="262,153,309,178"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="287,103,288,138,283,135,284,107"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="333,153,390,178"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="299,103,340,142,335,142,297,108"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="362,105,254,150,253,145,357,106"/>
+<area shape="poly" id="edge11_Node000007_Node000006" title=" " alt="" coords="387,103,374,140,370,136,383,106"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="490,153,550,178"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="412,103,488,145,482,145,411,108"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="414,153,466,178"/>
+<area shape="poly" id="edge10_Node000007_Node000009" title=" " alt="" coords="399,103,425,141,420,139,397,107"/>
+<area shape="poly" id="edge13_Node000010_Node000003" title=" " alt="" coords="149,103,191,142,185,142,147,108"/>
+</map>

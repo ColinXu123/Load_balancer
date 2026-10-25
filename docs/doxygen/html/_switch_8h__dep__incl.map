@@ -1,0 +1,7 @@
+<map id="src/Switch.h" name="src/Switch.h">
+<area shape="rect" id="Node000001" title="Front door of the simulation: firewall check plus job&#45;type routing." alt="" coords="75,5,169,31"/>
+<area shape="rect" id="Node000002" href="$_switch_8cpp.html" title="Implementation of the Switch class." alt="" coords="5,79,114,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,42,72,80,68,77,99,43"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html" title="Entry point: reads settings, builds the system, runs the simulation." alt="" coords="138,79,234,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="144,40,178,79,173,78,142,45"/>
+</map>

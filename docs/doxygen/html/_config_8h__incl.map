@@ -1,0 +1,9 @@
+<map id="src/Config.h" name="src/Config.h">
+<area shape="rect" id="Node000001" title="Loads simulation parameters from a key=value configuration file." alt="" coords="56,5,148,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,52,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,30,53,70,50,66,87,32"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="75,79,128,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="104,29,104,64,99,62,100,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="153,79,210,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="116,29,160,68,155,69,114,34"/>
+</map>

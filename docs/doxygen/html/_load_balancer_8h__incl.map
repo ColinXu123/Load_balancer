@@ -1,0 +1,28 @@
+<map id="src/LoadBalancer.h" name="src/LoadBalancer.h">
+<area shape="rect" id="Node000001" title="Defines the LoadBalancer class and its statistics record." alt="" coords="169,5,302,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,74,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="201,34,88,76,86,71,204,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="218,226,272,252"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="216,33,188,60,155,96,142,116,135,136,133,157,141,177,153,193,169,206,206,226,201,226,166,210,149,197,136,180,128,158,129,135,137,113,150,92,184,56,220,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="150,153,207,178"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="225,29,207,54,191,80,183,109,180,138,176,136,178,108,186,78,203,51,221,33"/>
+<area shape="rect" id="Node000005" href="$_config_8h.html" title="Loads simulation parameters from a key=value configuration file." alt="" coords="200,79,271,105"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="237,29,238,64,233,62,234,34"/>
+<area shape="rect" id="Node000007" href="$_request_8h.html" title="Defines the Request structure that represents a single web request." alt="" coords="352,153,434,178"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="249,29,371,141,366,143,247,34"/>
+<area shape="rect" id="Node000008" href="$_request_queue_8h.html" title="FIFO queue of pending requests owned by a load balancer." alt="" coords="465,79,584,105"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="285,29,463,74,458,76,285,34"/>
+<area shape="rect" id="Node000011" href="$_web_server_8h.html" title="Defines the WebServer class that processes one request at a time." alt="" coords="345,79,440,105"/>
+<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="262,29,355,71,350,73,262,34"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="238,103,246,212,241,210,234,107"/>
+<area shape="poly" id="edge7_Node000005_Node000004" title=" " alt="" coords="228,103,199,142,196,138,224,107"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="282,153,328,178"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="248,102,285,142,280,141,246,107"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="370,178,285,222,283,217,365,179"/>
+<area shape="poly" id="edge13_Node000008_Node000007" title=" " alt="" coords="505,104,429,148,427,143,500,106"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="475,153,540,178"/>
+<area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="524,103,516,139,512,136,520,107"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="563,153,620,178"/>
+<area shape="poly" id="edge12_Node000008_Node000010" title=" " alt="" coords="537,102,572,142,567,140,535,107"/>
+<area shape="poly" id="edge15_Node000011_Node000007" title=" " alt="" coords="395,103,395,138,391,135,391,107"/>
+</map>

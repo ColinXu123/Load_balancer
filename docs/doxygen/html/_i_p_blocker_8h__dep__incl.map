@@ -1,0 +1,18 @@
+<map id="src/IPBlocker.h" name="src/IPBlocker.h">
+<area shape="rect" id="Node000001" title="Firewall that rejects requests from configured IPv4 ranges." alt="" coords="171,5,281,31"/>
+<area shape="rect" id="Node000002" href="$_i_p_blocker_8cpp.html" title="Implementation of the IPBlocker firewall." alt="" coords="5,79,130,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,40,96,81,93,76,187,35"/>
+<area shape="rect" id="Node000003" href="$_request_generator_8h.html" title="Produces random requests according to configured distributions." alt="" coords="205,79,364,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="246,40,278,79,272,78,245,46"/>
+<area shape="rect" id="Node000005" href="$_switch_8h.html" title="Front door of the simulation: firewall check plus job&#45;type routing." alt="" coords="80,153,175,178"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="212,43,138,154,134,151,207,45"/>
+<area shape="rect" id="Node000007" href="$main_8cpp.html" title="Entry point: reads settings, builds the system, runs the simulation." alt="" coords="361,226,457,252"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="296,32,340,50,379,77,392,94,402,114,413,156,415,196,413,228,409,224,410,196,408,157,397,116,388,97,375,81,338,55,296,37"/>
+<area shape="rect" id="Node000004" href="$_request_generator_8cpp.html" title="Implementation of the RequestGenerator class." alt="" coords="198,153,372,178"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="286,118,287,154,283,151,283,122"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="242,113,156,154,153,150,246,110"/>
+<area shape="poly" id="edge7_Node000003_Node000007" title=" " alt="" coords="331,109,361,127,386,151,397,170,404,190,410,228,406,225,399,192,392,172,381,154,358,131,331,115"/>
+<area shape="rect" id="Node000006" href="$_switch_8cpp.html" title="Implementation of the Switch class." alt="" coords="73,226,182,252"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="129,192,130,227,125,225,126,196"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="190,180,363,224,359,227,189,185"/>
+</map>

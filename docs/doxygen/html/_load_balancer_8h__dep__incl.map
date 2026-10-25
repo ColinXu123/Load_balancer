@@ -1,0 +1,11 @@
+<map id="src/LoadBalancer.h" name="src/LoadBalancer.h">
+<area shape="rect" id="Node000001" title="Defines the LoadBalancer class and its statistics record." alt="" coords="84,5,217,31"/>
+<area shape="rect" id="Node000002" href="$_load_balancer_8cpp.html" title="Implementation of the LoadBalancer class." alt="" coords="5,79,152,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,44,93,80,89,77,130,40"/>
+<area shape="rect" id="Node000003" href="$_switch_8h.html" title="Front door of the simulation: firewall check plus job&#45;type routing." alt="" coords="175,79,270,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="174,39,213,78,208,79,173,44"/>
+<area shape="rect" id="Node000004" href="$_switch_8cpp.html" title="Implementation of the Switch class." alt="" coords="104,153,213,178"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="204,115,171,154,168,150,199,117"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html" title="Entry point: reads settings, builds the system, runs the simulation." alt="" coords="237,153,333,178"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="244,114,277,153,272,152,242,119"/>
+</map>

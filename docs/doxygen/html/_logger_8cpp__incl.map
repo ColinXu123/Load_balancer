@@ -1,0 +1,17 @@
+<map id="src/Logger.cpp" name="src/Logger.cpp">
+<area shape="rect" id="Node000001" title="Implementation of the Logger class." alt="" coords="224,5,330,31"/>
+<area shape="rect" id="Node000002" href="$_logger_8h.html" title="Colored terminal and plain&#45;text file logging with verbose/quiet modes." alt="" coords="44,79,114,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="242,34,128,76,126,71,245,29"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="139,79,220,105"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="262,30,209,72,206,68,258,33"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="244,79,310,105"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="278,29,279,64,274,62,275,33"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="334,79,406,105"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="293,29,345,69,340,69,292,34"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="429,79,498,105"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="309,29,420,72,415,74,308,34"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,153,71,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="75,103,55,141,50,138,70,106"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="95,153,149,178"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="88,103,110,139,104,139,85,107"/>
+</map>

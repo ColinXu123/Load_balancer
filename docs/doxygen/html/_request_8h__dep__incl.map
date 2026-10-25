@@ -1,0 +1,29 @@
+<map id="src/Request.h" name="src/Request.h">
+<area shape="rect" id="Node000001" title="Defines the Request structure that represents a single web request." alt="" coords="297,5,401,31"/>
+<area shape="rect" id="Node000002" href="$_load_balancer_8h.html" title="Defines the LoadBalancer class and its statistics record." alt="" coords="368,153,500,178"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="365,42,430,152,425,152,363,47"/>
+<area shape="rect" id="Node000007" href="$_request_generator_8h.html" title="Produces random requests according to configured distributions." alt="" coords="5,153,165,178"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="301,39,214,81,152,120,103,154,99,150,149,115,212,77,305,35"/>
+<area shape="rect" id="Node000009" href="$_request_queue_8h.html" title="FIFO queue of pending requests owned by a load balancer." alt="" coords="225,79,366,105"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="333,42,307,80,303,77,329,45"/>
+<area shape="rect" id="Node000011" href="$_web_server_8h.html" title="Defines the WebServer class that processes one request at a time." alt="" coords="441,79,558,105"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="388,35,477,78,471,79,388,41"/>
+<area shape="rect" id="Node000003" href="$_load_balancer_8cpp.html" title="Implementation of the LoadBalancer class." alt="" coords="361,226,508,252"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="436,192,437,227,432,224,433,196"/>
+<area shape="rect" id="Node000004" href="$_switch_8h.html" title="Front door of the simulation: firewall check plus job&#45;type routing." alt="" coords="219,226,314,252"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="394,184,296,228,294,223,389,186"/>
+<area shape="rect" id="Node000005" href="$_switch_8cpp.html" title="Implementation of the Switch class." alt="" coords="212,300,320,326"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="268,266,269,301,264,298,264,269"/>
+<area shape="rect" id="Node000006" href="$main_8cpp.html" title="Entry point: reads settings, builds the system, runs the simulation." alt="" coords="14,300,110,326"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="219,260,98,302,96,297,217,255"/>
+<area shape="poly" id="edge8_Node000007_Node000004" title=" " alt="" coords="130,182,238,224,233,227,130,187"/>
+<area shape="poly" id="edge9_Node000007_Node000006" title=" " alt="" coords="46,189,28,206,13,227,10,247,18,266,32,283,49,299,44,300,28,287,14,268,5,247,8,225,24,202,49,185"/>
+<area shape="rect" id="Node000008" href="$_request_generator_8cpp.html" title="Implementation of the RequestGenerator class." alt="" coords="22,226,196,252"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="95,191,108,226,102,226,93,196"/>
+<area shape="poly" id="edge11_Node000009_Node000002" title=" " alt="" coords="333,110,413,152,408,152,333,115"/>
+<area shape="rect" id="Node000010" href="$_request_queue_8cpp.html" title="Implementation of the RequestQueue class." alt="" coords="189,153,344,178"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="287,117,273,154,269,151,283,121"/>
+<area shape="poly" id="edge14_Node000011_Node000002" title=" " alt="" coords="481,114,447,154,444,150,476,117"/>
+<area shape="rect" id="Node000012" href="$_web_server_8cpp.html" title="Implementation of the WebServer class." alt="" coords="525,153,656,178"/>
+<area shape="poly" id="edge15_Node000011_Node000012" title=" " alt="" coords="527,112,578,153,573,152,526,117"/>
+</map>

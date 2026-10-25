@@ -1,0 +1,5 @@
+<map id="RequestGenerator" name="RequestGenerator">
+<area shape="rect" id="Node000001" title="Random source of new requests." alt="" coords="5,102,133,128"/>
+<area shape="rect" id="Node000002" href="$class_i_p_blocker.html" title="Simulated firewall / denial&#45;of&#45;service filter." alt="" coords="30,5,108,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,45,72,102,66,101,67,48"/>
+</map>

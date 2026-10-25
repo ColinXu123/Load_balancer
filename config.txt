@@ -1,0 +1,55 @@
+# ------------------------------------------------------------------
+# Load Balancer Simulation - configuration
+# Format: key=value. '#' starts a comment. Command-line flags override.
+# ------------------------------------------------------------------
+
+# --- Run defaults (used when -s / -t are not given and no prompt) ---
+default_servers=20
+default_cycles=10000
+initial_requests_per_server=100
+seed=42                       # 0 = different random run every time
+
+# --- Routing -------------------------------------------------------
+use_switch=1                  # 1 = separate streaming/processing balancers
+streaming_server_share=0.6    # share of starting servers given to streaming
+
+# --- Request generation --------------------------------------------
+arrival_rate=0.6              # average new requests per cycle at normal traffic
+
+# --- Changing traffic (so load is not flat) -----------------------
+traffic_wave_amplitude=0.5    # slow busy/quiet cycle: traffic swings +/-50%
+traffic_wave_period=25000     # cycles for one full busy -> quiet -> busy wave
+spike_chance=0.00005          # per-cycle chance a traffic spike starts
+spike_multiplier=3.0          # traffic x3 during a spike
+lull_chance=0.00005           # per-cycle chance a traffic lull starts
+lull_multiplier=0.1           # traffic x0.1 during a lull
+event_min_length=1000         # spikes and lulls last 1000..5000 cycles
+event_max_length=5000
+
+streaming_ratio=0.35          # fraction of requests that are streaming (S)
+processing_time_min=5         # P job length range, clock cycles
+processing_time_max=45
+streaming_time_min=40         # S job length range, clock cycles
+streaming_time_max=120
+
+# --- Dynamic scaling ----------------------------------------------
+scale_low_threshold=50        # remove a server if queue < 50 x servers
+scale_high_threshold=80       # add a server if queue > 80 x servers
+scale_interval=250            # cycles to wait after each scaling action
+min_servers=1
+max_servers=500
+
+# --- Firewall ------------------------------------------------------
+# One range per line: CIDR (a.b.c.d/n) or explicit (a.b.c.d-e.f.g.h).
+blocked_range=10.0.0.0/8
+blocked_range=192.168.0.0/16
+blocked_range=203.0.113.0-203.0.113.255
+attack_probability=0.05       # fraction of requests sent from blocked ranges
+
+# --- Logging -------------------------------------------------------
+verbose=0                     # 1 = verbose (log of changing events), 0 = quiet (start + end summary)
+color=1                       # ANSI colors on the terminal
+status_interval=5000          # verbose: status line every N cycles (0 = off)
+request_log_every=100         # verbose: follow every Nth request (NEW/ASSIGN/DONE), 0 = none
+cycle_delay_ms=0              # pause per cycle in ms, e.g. 1 to watch live (0 = full speed)
+log_file=                     # e.g. logs/run.log (empty = terminal only)

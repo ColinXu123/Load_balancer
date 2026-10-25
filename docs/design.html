@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colin's Balance - Load Balancer Design</title>
+<style>
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:17px;line-height:1.6;color:#1f2937;background:#eef1f5}
+header{background:#0b2545;color:#fff;padding:40px 20px 70px;border-bottom:4px solid #19d3b0}
+.inner{max-width:860px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:18px}
+.brand svg{width:72px;height:72px;flex:none}
+.brand h1{margin:0;font-size:36px;line-height:1.15;font-weight:700;letter-spacing:-.01em}
+.brand p{margin:4px 0 0;font-size:16px;color:#c3d0e2}
+main{max-width:860px;margin:-36px auto 0;padding:0 16px 50px}
+.panel{background:#fff;border:1px solid #dbe1e8;border-radius:10px;padding:24px 28px;margin-bottom:20px;box-shadow:0 2px 8px rgba(15,23,42,.06)}
+h2{font-size:22px;margin:0 0 10px;padding-left:12px;border-left:5px solid #19d3b0;color:#0b2545}
+h3{font-size:16px;margin:22px 0 6px;color:#0b2545;text-transform:none}
+p{margin:0 0 12px}
+.diagram{border:1px solid #dbe1e8;border-radius:8px;padding:10px;margin:14px 0 0;background:#fafbfc}
+.diagram svg{display:block;width:100%;max-width:640px;height:auto;margin:0 auto}
+.note{font-size:14px;color:#5b6573;text-align:center;margin:6px 0 0}
+ol{padding-left:0;list-style:none;counter-reset:s;margin:0}
+ol li{counter-increment:s;position:relative;padding:8px 0 8px 40px;border-bottom:1px solid #eef1f5}
+ol li:last-child{border-bottom:0}
+ol li::before{content:counter(s);position:absolute;left:0;top:8px;width:26px;height:26px;border-radius:50%;background:#0b2545;color:#19d3b0;font-size:14px;font-weight:700;text-align:center;line-height:26px}
+code{font-size:14px;background:#eef1f5;padding:1px 5px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="inner brand">
+<svg viewBox="0 0 72 72" aria-hidden="true">
+<circle cx="36" cy="36" r="34" fill="#0b2545" stroke="#19d3b0" stroke-width="3"/>
+<polygon points="36,26 28,56 44,56" fill="#19d3b0"/>
+<line x1="12" y1="26" x2="60" y2="26" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+<circle cx="36" cy="26" r="3.5" fill="#fff"/>
+<line x1="14" y1="26" x2="14" y2="36" stroke="#fff" stroke-width="1.5"/><line x1="22" y1="26" x2="14" y2="36" stroke="#fff" stroke-width="1.5"/>
+<path d="M8 36 H24 Q24 44 16 44 Q8 44 8 36 Z" fill="#fff"/>
+<line x1="58" y1="26" x2="58" y2="36" stroke="#fff" stroke-width="1.5"/><line x1="50" y1="26" x2="58" y2="36" stroke="#fff" stroke-width="1.5"/>
+<path d="M50 36 H66 Q66 44 58 44 Q50 44 50 36 Z" fill="#fff"/>
+</svg>
+<div>
+<h1>Colin&rsquo;s Balance</h1>
+<p>Load balancer simulation: design document</p>
+</div>
+</div>
+</header>
+
+<main>
+
+<div class="panel">
+<h2>Flow diagram</h2>
+<p>This shows how a request moves through the program. The dashed box repeats every clock cycle.</p>
+<div class="diagram">
+<svg viewBox="0 0 640 770" role="img" aria-labelledby="dt" font-family="Helvetica,Arial,sans-serif">
+<title id="dt">Load balancer flow diagram</title>
+<defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#333"/></marker></defs>
+<style>
+.n{fill:#f1f4f8;stroke:#9aa5b4;stroke-width:1.2}.c{fill:#dff7f2;stroke:#19b89a;stroke-width:1.4}.s{fill:#fdeccb;stroke:#e09a1f;stroke-width:1.4}.w{fill:#e4ebfa;stroke:#4a74d1;stroke-width:1.4}
+.t{font-size:15px;font-weight:bold;fill:#111;text-anchor:middle;dominant-baseline:central}
+.u{font-size:12.5px;fill:#444;text-anchor:middle;dominant-baseline:central}
+.l{stroke:#333;stroke-width:1.4;fill:none;marker-end:url(#a)}
+</style>
+<rect class="n" x="170" y="10" width="220" height="44" rx="8"/><text class="t" x="280" y="26">Config file + input</text><text class="u" x="280" y="42">servers, run time, n</text>
+<line class="l" x1="280" y1="54" x2="280" y2="78"/>
+<rect class="n" x="170" y="80" width="220" height="44" rx="8"/><text class="t" x="280" y="96">Set up</text><text class="u" x="280" y="112">servers + full queues</text>
+<line class="l" x1="280" y1="124" x2="280" y2="188"/>
+<rect x="20" y="150" width="610" height="532" fill="none" stroke="#555" stroke-dasharray="6 5"/>
+<text x="32" y="170" font-size="13" fill="#444">repeat every clock cycle</text>
+<rect class="n" x="170" y="190" width="220" height="44" rx="8"/><text class="t" x="280" y="206">New request</text><text class="u" x="280" y="222">random IPs, time, job type</text>
+<line class="l" x1="280" y1="234" x2="280" y2="258"/>
+<rect class="s" x="170" y="260" width="220" height="44" rx="8"/><text class="t" x="280" y="276">Firewall</text><text class="u" x="280" y="292">is the IP blocked?</text>
+<line class="l" x1="390" y1="282" x2="438" y2="282"/>
+<rect class="s" x="440" y="260" width="170" height="44" rx="8"/><text class="t" x="525" y="276">Drop</text><text class="u" x="525" y="292">logged, not queued</text>
+<line class="l" x1="280" y1="304" x2="280" y2="328"/>
+<rect class="w" x="170" y="330" width="220" height="44" rx="8"/><text class="t" x="280" y="346">Switch</text><text class="u" x="280" y="362">route by job type</text>
+<line class="l" x1="390" y1="352" x2="438" y2="352"/>
+<rect class="w" x="440" y="322" width="170" height="60" rx="8"/><text class="u" x="525" y="342">S &rarr; streaming balancer</text><text class="u" x="525" y="362">P &rarr; processing balancer</text>
+<line class="l" x1="280" y1="374" x2="280" y2="398"/>
+<rect class="c" x="170" y="400" width="220" height="44" rx="8"/><text class="t" x="280" y="416">Request queue</text><text class="u" x="280" y="432">waits for a free server</text>
+<line class="l" x1="280" y1="444" x2="280" y2="468"/>
+<rect class="c" x="170" y="470" width="220" height="44" rx="8"/><text class="t" x="280" y="486">Web servers</text><text class="u" x="280" y="502">process the request</text>
+<path class="l" d="M170 492 L132 492 L132 422 L168 422"/>
+<text x="30" y="454" font-size="12" fill="#444">asks for</text><text x="30" y="469" font-size="12" fill="#444">the next one</text>
+<line class="l" x1="280" y1="514" x2="280" y2="538"/>
+<rect class="c" x="170" y="540" width="220" height="44" rx="8"/><text class="t" x="280" y="556">Scale check</text><text class="u" x="280" y="572">skipped while waiting n</text>
+<line class="l" x1="390" y1="562" x2="438" y2="562"/>
+<rect class="c" x="440" y="522" width="170" height="80" rx="8"/><text class="u" x="525" y="542">below 50 × servers:</text><text class="t" x="525" y="559" style="font-size:13.5px">remove 1 server</text><text class="u" x="525" y="578">above 80 × servers:</text><text class="t" x="525" y="594" style="font-size:13.5px">add 1 server</text>
+<line class="l" x1="280" y1="584" x2="280" y2="608"/>
+<rect class="n" x="170" y="610" width="220" height="44" rx="8"/><text class="t" x="280" y="626">Log and tick</text><text class="u" x="280" y="642">save events, clock + 1</text>
+<text x="410" y="636" font-size="12.5" fill="#444">repeat until time is up</text>
+<line class="l" x1="280" y1="682" x2="280" y2="706"/>
+<rect class="n" x="170" y="708" width="220" height="44" rx="8"/><text class="t" x="280" y="724">Final summary</text><text class="u" x="280" y="740">screen and log file</text>
+</svg>
+<p class="note">Gray: setup and reporting. Orange: firewall. Blue: switch. Green: load balancer (one each for S and P).</p>
+</div>
+
+</div>
+
+<div class="panel">
+<h2>Description</h2>
+<p>The goal is to keep each load balancer&rsquo;s queue between 50 and 80 requests per server.</p>
+
+<h3>Setup</h3>
+<ol>
+<li>Read the settings from <code>config.txt</code> and the command line: number of servers, run time, wait time n, firewall IP ranges, and verbose or quiet mode.</li>
+<li>Create two load balancers, one for streaming (S) jobs and one for processing (P) jobs, and split the starting servers between them.</li>
+<li>Fill each balancer&rsquo;s queue with its servers × 100 random requests.</li>
+</ol>
+
+<h3>Every clock cycle</h3>
+<ol>
+<li>With some chance, one or more new random requests are created, each with an IP in, IP out, time and job type (P or S).</li>
+<li>The firewall checks the source IP against the blocked ranges. Blocked requests are dropped and logged.</li>
+<li>The switch sends S requests to the streaming balancer and P requests to the processing balancer, where they wait in that balancer&rsquo;s queue.</li>
+<li>Each busy server counts down its time. When a server finishes, it asks for the next request.</li>
+<li>Each balancer removes a server if its queue is under 50 × servers, or adds one if it is over 80 × servers. After a change it waits n cycles before checking again. A server being removed finishes its current request first, so no work is lost.</li>
+<li>Write the events to the log and add 1 to the clock.</li>
+</ol>
+
+<h3>End</h3>
+<p>When the clock reaches the run time, the program prints a final summary to the screen and the log file for each balancer and for both combined: requests processed, blocked and left in the queue, plus the server counts.</p>
+
+</div>
+
+</main>
+</body>
+</html>

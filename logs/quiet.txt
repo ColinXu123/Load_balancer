@@ -1,0 +1,154 @@
+==================== LOAD BALANCER SIMULATION: INITIAL CONFIGURATION ====================
+  Config file               config.txt
+  Logging mode              quiet (major events + summaries)
+  Routing                   switch: S -> LB-Streaming, P -> LB-Processing
+  Random seed               42
+  Starting web servers      20
+  Simulation length         100000 clock cycles
+  Initial queue             100 requests per server
+  Scaling rule              add if queue > 80 x servers, remove if < 50 x servers
+  Scaling wait              250 cycles after each change
+  Server limits             1 to 500 per balancer
+  Arrival rate              0.6 requests/cycle on average
+  Traffic wave              +/-50% every 25000 cycles
+  Traffic spikes            x3, chance 5e-05/cycle
+  Traffic lulls             x0.1, chance 5e-05/cycle
+  Spike/lull length         1000-5000 cycles
+  Job mix                   35% streaming (S), rest processing (P)
+  Job times                 P 5-45, S 40-120 cycles
+  Firewall                  3 range(s):  10.0.0.0/8  192.168.0.0/16  203.0.113.0-203.0.113.255
+  Attack traffic            5% of requests from blocked ranges
+Starting state:
+  Start  LB-Streaming   queue=  1200  active= 12  inactive= 12  draining= 0  per-server= 100.0  done=      0  rejected=   67  util now=  0.0%
+  Start  LB-Processing  queue=   800  active=  8  inactive=  8  draining= 0  per-server= 100.0  done=      0  rejected=   44  util now=  0.0%
+==================== SIMULATION RUNNING ====================
+[cycle 5000] status  (traffic 1.48x, normal)
+  LB-Streaming   queue=  2892  active= 32  inactive=  0  draining= 0  per-server=  90.4  done=   1397  rejected=  254  util now=100.0%
+  LB-Processing  queue=  2995  active= 27  inactive=  0  draining= 0  per-server= 110.9  done=   3539  rejected=  396  util now=100.0%
+[cycle 10000] status  (traffic 1.29x, normal)
+  LB-Streaming   queue=  1554  active= 31  inactive=  0  draining= 0  per-server=  50.1  done=   3541  rejected=  292  util now=100.0%
+  LB-Processing  queue=     0  active= 18  inactive=  6  draining= 0  per-server=   0.0  done=   7973  rejected=  473  util now= 66.7%
+[cycle 15000] status  (traffic 2.12x, spike)
+  LB-Streaming   queue=   724  active= 13  inactive=  0  draining= 0  per-server=  55.7  done=   4912  rejected=  329  util now=100.0%
+  LB-Processing  queue=   328  active=  3  inactive=  0  draining= 0  per-server= 109.3  done=   8712  rejected=  516  util now=100.0%
+[cycle 20000] status  (traffic 0.52x, normal)
+  LB-Streaming   queue=  1165  active= 17  inactive=  0  draining= 0  per-server=  68.5  done=   5849  rejected=  416  util now=100.0%
+  LB-Processing  queue=   611  active= 13  inactive=  0  draining= 0  per-server=  47.0  done=  11045  rejected=  670  util now=100.0%
+[cycle 25000] status  (traffic 1.00x, normal)
+  LB-Streaming   queue=  1625  active= 22  inactive=  0  draining= 0  per-server=  73.9  done=   6999  rejected=  523  util now=100.0%
+  LB-Processing  queue=  1064  active= 17  inactive=  0  draining= 0  per-server=  62.6  done=  13390  rejected=  821  util now=100.0%
+[cycle 30000] status  (traffic 1.48x, normal)
+  LB-Streaming   queue=  2603  active= 31  inactive=  0  draining= 0  per-server=  84.0  done=   8474  rejected=  670  util now=100.0%
+  LB-Processing  queue=  2555  active= 23  inactive=  0  draining= 0  per-server= 111.1  done=  16622  rejected= 1085  util now=100.0%
+[cycle 35000] status  (traffic 1.29x, normal)
+  LB-Streaming   queue=  2021  active= 33  inactive=  0  draining= 0  per-server=  61.2  done=  10525  rejected=  754  util now=100.0%
+  LB-Processing  queue=   491  active= 16  inactive=  0  draining= 1  per-server=  30.7  done=  21402  rejected= 1233  util now=100.0%
+[cycle 40000] status  (traffic 0.71x, normal)
+  LB-Streaming   queue=  1165  active= 23  inactive=  0  draining= 0  per-server=  50.7  done=  12392  rejected=  809  util now=100.0%
+  LB-Processing  queue=   386  active=  7  inactive=  0  draining= 0  per-server=  55.1  done=  23301  rejected= 1339  util now=100.0%
+[cycle 45000] status  (traffic 0.52x, normal)
+  LB-Streaming   queue=   651  active= 12  inactive=  0  draining= 1  per-server=  54.2  done=  13468  rejected=  836  util now=100.0%
+  LB-Processing  queue=   321  active=  5  inactive=  0  draining= 0  per-server=  64.2  done=  24352  rejected= 1400  util now=100.0%
+[cycle 50000] status  (traffic 1.00x, normal)
+  LB-Streaming   queue=  1586  active= 21  inactive=  0  draining= 0  per-server=  75.5  done=  14393  rejected=  947  util now=100.0%
+  LB-Processing  queue=  1376  active= 20  inactive=  0  draining= 0  per-server=  68.8  done=  26686  rejected= 1615  util now=100.0%
+[cycle 55000] status  (traffic 1.48x, normal)
+  LB-Streaming   queue=  1597  active= 21  inactive=  0  draining= 0  per-server=  76.0  done=  15697  rejected= 1023  util now=100.0%
+  LB-Processing  queue=   742  active= 12  inactive=  0  draining= 0  per-server=  61.8  done=  29670  rejected= 1740  util now=100.0%
+[cycle 60000] status  (traffic 1.29x, normal)
+  LB-Streaming   queue=  1703  active= 22  inactive=  0  draining= 0  per-server=  77.4  done=  17061  rejected= 1094  util now=100.0%
+  LB-Processing  queue=   971  active= 13  inactive=  0  draining= 0  per-server=  74.7  done=  32139  rejected= 1882  util now=100.0%
+[cycle 65000] status  (traffic 2.12x, spike)
+  LB-Streaming   queue=  2361  active= 30  inactive=  0  draining= 0  per-server=  78.7  done=  18640  rejected= 1222  util now=100.0%
+  LB-Processing  queue=  1667  active= 22  inactive=  0  draining= 0  per-server=  75.8  done=  35502  rejected= 2115  util now=100.0%
+[cycle 70000] status  (traffic 1.57x, spike)
+  LB-Streaming   queue=  1259  active= 25  inactive=  0  draining= 0  per-server=  50.4  done=  20464  rejected= 1266  util now=100.0%
+  LB-Processing  queue=   120  active=  6  inactive=  0  draining= 0  per-server=  20.0  done=  38397  rejected= 2177  util now=100.0%
+[cycle 75000] status  (traffic 1.00x, normal)
+  LB-Streaming   queue=  1484  active= 25  inactive=  0  draining= 0  per-server=  59.4  done=  22033  rejected= 1386  util now=100.0%
+  LB-Processing  queue=  1123  active= 19  inactive=  0  draining= 0  per-server=  59.1  done=  40845  rejected= 2366  util now=100.0%
+[cycle 80000] status  (traffic 1.48x, normal)
+  LB-Streaming   queue=  1208  active= 23  inactive=  0  draining= 0  per-server=  52.5  done=  23563  rejected= 1461  util now=100.0%
+  LB-Processing  queue=   771  active= 12  inactive=  0  draining= 0  per-server=  64.2  done=  43621  rejected= 2502  util now=100.0%
+[cycle 85000] status  (traffic 1.29x, normal)
+  LB-Streaming   queue=  1213  active= 23  inactive=  0  draining= 0  per-server=  52.7  done=  25010  rejected= 1545  util now=100.0%
+  LB-Processing  queue=   894  active= 13  inactive=  0  draining= 0  per-server=  68.8  done=  46164  rejected= 2662  util now=100.0%
+[cycle 90000] status  (traffic 0.71x, normal)
+  LB-Streaming   queue=   895  active= 17  inactive=  0  draining= 0  per-server=  52.6  done=  26320  rejected= 1602  util now=100.0%
+  LB-Processing  queue=   445  active=  8  inactive=  0  draining= 0  per-server=  55.6  done=  48490  rejected= 2783  util now=100.0%
+[cycle 95000] status  (traffic 1.57x, spike)
+  LB-Streaming   queue=   878  active= 13  inactive=  0  draining= 0  per-server=  67.5  done=  27206  rejected= 1640  util now=100.0%
+  LB-Processing  queue=   720  active= 10  inactive=  0  draining= 0  per-server=  72.0  done=  49781  rejected= 2868  util now=100.0%
+==================== END STATUS ====================
+  End    LB-Streaming   queue=   892  active= 17  inactive=  0  draining= 0  per-server=  52.5  done=  28201  rejected= 1705  util now=100.0%
+  End    LB-Processing  queue=    56  active=  8  inactive=  0  draining= 0  per-server=   7.0  done=  52301  rejected= 2975  util now=100.0%
+  Traffic spikes / lulls    8 / 3
+==================== FINAL SUMMARY ====================
+--- LB-Streaming ---
+  Servers (initial -> final)            12 -> 17
+  Servers (low / peak)                  12 / 35
+  Servers added / removed               65 / 60
+  Active servers at end                 17 (17 busy)
+  Inactive (idle) servers at end        0
+  Draining servers at end               0
+  Average inactive servers per cycle    0.00
+  Servers drained before removal        60
+  Requests done per online server       #19:1222 #47:895 #49:896 #59:648 #60:633 #61:632 #62:635 #63:632 #65:555 #67:477 #68:471 #69:476 #72:454 #74:49 #75:45 #76:40 #77:37 
+  Initial queue                         1200
+  Requests accepted (incl. initial)     29110
+  Requests rejected by firewall         1705 (5.53%)
+  Requests processed                    28201
+  Remaining in queue                    892
+  In flight at end                      17
+  Average queue size                    1468.5
+  Maximum queue size                    2946
+  Average servers online                22.54
+  Average server utilization            100.0%
+  Average wait in queue (cycles)        5097.4
+  Average processing time (cycles)      79.9
+  Requests completed per cycle          0.2820
+--- LB-Processing ---
+  Servers (initial -> final)            8 -> 8
+  Servers (low / peak)                  1 / 31
+  Servers added / removed               112 / 112
+  Active servers at end                 8 (8 busy)
+  Inactive (idle) servers at end        0
+  Draining servers at end               0
+  Average inactive servers per cycle    0.56
+  Servers drained before removal        85
+  Requests done per online server       #99:1157 #106:1068 #111:253 #112:245 #113:237 #115:209 #117:174 #120:116 
+  Initial queue                         800
+  Requests accepted (incl. initial)     52365
+  Requests rejected by firewall         2975 (5.38%)
+  Requests processed                    52301
+  Remaining in queue                    56
+  In flight at end                      8
+  Average queue size                    863.2
+  Maximum queue size                    3310
+  Average servers online                13.58
+  Average server utilization            95.9%
+  Average wait in queue (cycles)        1649.4
+  Average processing time (cycles)      24.9
+  Requests completed per cycle          0.5230
+--- All balancers combined ---
+  Total simulation duration (cycles)    100000
+  Servers (initial -> final)            20 -> 25
+  Servers added / removed               177 / 172
+  Active servers at end                 25 (25 busy)
+  Inactive (idle) servers at end        0
+  Draining servers at end               0
+  Average inactive servers per cycle    0.56
+  Requests generated (incl. initial)    86155
+  Requests rejected by firewall         4680 (5.43%)
+  Requests accepted                     81475
+  Requests processed                    80502
+  Remaining in queue                    948
+  In flight at end                      25
+  Average total queue size              2331.7
+  Sum of per-balancer max queues        6256
+  Average server utilization            98.5%
+  Requests completed per cycle          0.8050
+  Accounting check                      OK (accepted = processed + queued + in flight)
+==================================================================
+
+
